@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Booking Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Get Your Travel Quote</h1>
+    <form id="bookingForm" enctype="multipart/form-data" method="post" onsubmit="showConfirmation(event)">
+        <div class="form-field">
+            <label for="places">Choose a destination:</label>
+            <select id="places">
+                <option value="0">Select a place</option>
+                <option value="23891">Darjeeling</option>
+                <option value="22250">Srinagar</option>
+                <option value="32999">Andaman</option>
+                <option value="15999">Manali</option>
+                <option value="21000">Kerala</option>
+                <option value="15000">Coorg</option>
+                <option value="18999">Sikkim</option>
+                <option value="12500">Uttar Pradesh</option>
+                <option value="54500">Kashmir</option>
+                <option value="20500">Shillong</option>
+                <option value="25450">Tamil Nadu</option>
+            </select>
+        </div>
+
+        <div class="form-field">
+            <label for="passengerCount">Number of passengers:</label>
+            <input type="number" id="passengerCount" value="1" min="1">
+        </div>
+
+        <div class="form-field">
+            <button type="button" onclick="calculateTotal()">Calculate Total</button>
+        </div>
+
+        <div class="form-field">
+            <label>Total Price (includes taxes):</label>
+            <input type="text" id="totalPrice" readonly>
+        </div>
+
+        <!-- QR Code for Payment -->
+        <div class="qr-code">
+            <h2>Payment QR Code</h2>
+            <center><img src="assets/images/image.png" alt="Scan to pay with any UPI app"></center>
+        </div>
+
+        <!-- File Upload -->
+        <div class="form-field">
+            <label for="upload">Upload Your Travel Document (Optional):</label>
+            <input type="file" id="upload" name="file" accept=".pdf,.jpg,.jpeg,.png">
+        </div>
+
+        <div class="submit">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function calculateTotal() {
+        const price = parseInt(document.getElementById('places').value);
+        const passengers = parseInt(document.getElementById('passengerCount').value);
+        const taxRate = 0.12; // 12% tax
+        const totalPrice = (price * passengers) * (1 + taxRate);
+        document.getElementById('totalPrice').value = `₹${totalPrice.toLocaleString()}`;
+    }
+
+    function showConfirmation(event) {
+        event.preventDefault(); // Prevents the form from submitting immediately
+        alert("Your ticket has been booked, and you will receive the confirmation mail soon.");
+        
+        // Redirect 
+        setTimeout(() => {
+            window.location.href = 'main.html';
+        }, 1000); 
+    }
+</script>
+
+</body>
+</html>
