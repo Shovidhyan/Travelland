@@ -13,9 +13,7 @@
 ## Tech Stack
 
 - **Languages**: HTML, CSS, JavaScript
-- **Frameworks/Libraries**:
-  - React (Frontend framework)
-  - Tailwind CSS (CSS framework for styling)
+
   
 ## Installation
 
