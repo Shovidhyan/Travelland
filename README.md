@@ -1,6 +1,6 @@
 # TravelLand
 
-**TravelLand** is a modern, responsive website designed to showcase beautiful travel destinations. Built using React and Tailwind CSS, this project provides a seamless experience for users to explore and plan their travel adventures.
+**TravelLand** is a modern, responsive website designed to showcase beautiful travel destinations. This project provides a seamless experience for users to explore and plan their travel adventures.
 
 ## Features
 
